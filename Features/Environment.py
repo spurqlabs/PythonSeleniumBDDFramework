@@ -24,9 +24,7 @@ def before_scenario(context, scenario):
         context.driver.maximize_window()
         context.driver.implicitly_wait(3)
     else:
-        context.driver.get(data['APIURL'])
-        context.driver.maximize_window()
-        context.driver.implicitly_wait(3)
+        pass
 
 def after_step(context, step):
     attach(context.driver.get_screenshot_as_png(), name=context.stepid, attachment_type=AttachmentType.PNG)
