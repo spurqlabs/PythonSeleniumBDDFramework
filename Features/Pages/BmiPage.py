@@ -23,14 +23,9 @@ class BmiPage (BasePage):
         time.sleep(2)
 
     def gender_radio(self, Gender):
-        try:
-            MaleGender = self.driver.find_element(By.XPATH, "//label[normalize-space()='" + Gender + "']")
-            MaleGender.click()
-            time.sleep(2)
-        except:
-            FemaleGender = self.driver.find_element(By.XPATH, "//label[normalize-space()='" + Gender + "']")
-            FemaleGender.click()
-            time.sleep(3)
+        SelectGender = self.driver.find_element(By.XPATH, "//label[normalize-space()='" + Gender + "']")
+        SelectGender.click()
+        time.sleep(2)
 
     def height_input(self, height):
         HeightInput = self.driver.find_element(By.XPATH, self.height_xpath)
