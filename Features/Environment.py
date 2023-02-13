@@ -11,20 +11,19 @@ from Pages.BmiPage import BmiPage
 data = json.load(open("Resources/config.json"))
 
 
+# This environment page is used as hooks page. Here we can notice that we have used before, after hooks along side with some step hooks.
+
+
 def before_scenario(context, scenario):
-    tag = str(scenario.tags)
-    print(tag)
     context.driver = webdriver.Chrome(ChromeDriverManager().install())
     time.sleep(5)
     basepage = BasePage(context.driver)
     context.bmipage = BmiPage(basepage)
     context.stepid = 1
-    if "bmi" in tag:
-        context.driver.get(data['BMIWEBURL'])
-        context.driver.maximize_window()
-        context.driver.implicitly_wait(3)
-    else:
-        pass
+    context.driver.get(data['BMIWEBURL'])
+    context.driver.maximize_window()
+    context.driver.implicitly_wait(3)
+
 
 def after_step(context, step):
     attach(context.driver.get_screenshot_as_png(), name=context.stepid, attachment_type=AttachmentType.PNG)
@@ -32,7 +31,6 @@ def after_step(context, step):
 
 
 def after_scenario(context, scenario):
-    print("After scenario", scenario)
     context.driver.close()
 
 

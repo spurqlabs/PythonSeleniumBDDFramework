@@ -3,6 +3,9 @@ import time
 from Features.Pages.BasePage import BasePage
 
 
+# The page contains all the locators and the actions to perform on that web element.
+# In this page file we have declared all the locators at the class level and we are using them in the respective methods.
+
 class BmiPage (BasePage):
     def __init__(self, context):
         BasePage.__init__(self, context.driver)
