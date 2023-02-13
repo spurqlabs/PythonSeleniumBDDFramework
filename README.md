@@ -1,4 +1,5 @@
-# SeleniumPython
+# PythonSeleniumBDDFramework
+
 In this selenium python project BDD Framework created alsong with selenium python to automate web test cases and api testing. I have also added the allure reports to display the full and detailed presentation of the test result. 
 
 
